@@ -18,7 +18,11 @@ class ViewController: UIViewController {
 
 
     @IBAction func didActionTapped(_ sender: Any) {
+<<<<<<< HEAD
         self.appDelegate?.scheduleNotification(notificationType: "open")
+=======
+ self.appDelegate?.scheduleNotification(notificationType: "open")
+>>>>>>> master
         
     }
 }
