@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-<<<<<<< HEAD
    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
@@ -47,23 +46,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         completionHandler([.alert, .badge, .sound])
-=======
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
-        completionHandler([.alert, .badge, .sound])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        if response.notification.request.identifier == "Local Notification" {
-            print("Handling notifications with the Local Notification Identifier")
-        }
-        
-        completionHandler()
->>>>>>> master
+
     }
     
     func scheduleNotification(notificationType: String) {
@@ -71,11 +54,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent()
         content.title = "Notifiaction on a certail date"
         content.body = "This is a local notification on certain date"
-<<<<<<< HEAD
-        content.sound = .default
-=======
+
         content.sound = UNNotificationSound.default
->>>>>>> master
+        
         content.badge = 1
         content.userInfo = ["value": "Data with local notification"]
         
@@ -83,11 +64,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let fireDate = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: Date().addingTimeInterval(10))
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate, repeats: false)
-<<<<<<< HEAD
-=======
-        //UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
         
->>>>>>> master
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         notificationsCenter.add(request) { (error) in
             if let error = error {
